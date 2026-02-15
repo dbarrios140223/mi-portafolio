@@ -4,15 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProyectoController;
 use Illuminate\Support\Facades\Artisan;
 
-
-
-
-Route::get('/hola', function () {
-    return '<h1>¡Hola! Esta es mi primera ruta en mi laptop nueva</h1>';
-});
-
-Route::get('/', [ProyectoController::class, 'index']);
-
 Route::get('/instalar-todo', function() {
     try {
         // El comando 'migrate:fresh' creará las tablas que Laravel no encuentra
@@ -21,7 +12,13 @@ Route::get('/instalar-todo', function() {
     } catch (\Exception $e) {
         return "Error técnico: " . $e->getMessage();
     }
-
-
-    
 });
+
+
+Route::get('/hola', function () {
+    return '<h1>¡Hola! Esta es mi primera ruta en mi laptop nueva</h1>';
+});
+
+Route::get('/', [ProyectoController::class, 'index']);
+
+
