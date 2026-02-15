@@ -15,11 +15,13 @@ Route::get('/', [ProyectoController::class, 'index']);
 
 Route::get('/instalar-todo', function() {
     try {
+        // El comando 'migrate:fresh' creará las tablas que Laravel no encuentra
         Artisan::call('migrate:fresh --seed --force');
-        return "¡Éxito! Base de datos creada y proyectos de Cisco cargados. <a href='/'>Volver al inicio</a>";
+        return "¡Tablas creadas y datos cargados! <a href='/'>Ir al inicio</a>";
     } catch (\Exception $e) {
-        return "Error: " . $e->getMessage();
+        return "Error técnico: " . $e->getMessage();
     }
+
 
     
 });
