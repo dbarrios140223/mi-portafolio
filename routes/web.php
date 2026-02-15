@@ -20,4 +20,6 @@ Route::get('/instalar-todo', function() {
     } catch (\Exception $e) {
         return "Error: " . $e->getMessage();
     }
+
+    
 });
